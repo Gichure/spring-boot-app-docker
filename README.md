@@ -141,5 +141,3 @@ This command will build the Docker image for our Spring Boot application and sta
 
 ### Source Code
 You can access the source code from Github [here](https://github.com/gichure/spring-boot-app-docker.git).
-
-Note the 

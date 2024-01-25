@@ -3,15 +3,13 @@ server:
 spring:   
   application:
     name: spring-boot-docker
-  rabbitmq:
-    addresses: amqp://xxayryur:LKiyVZeKLDeuBtEl2FpM5sWbaieR4YU7@toad.rmq.cloudamqp.com/xxayryur
   main:
     banner-mode: "off"
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/samples_dev_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
-    username: dev
-    password: Dev123#@!
+    username: mysqluser
+    password: Mysql123#@!
     platform: mysql
     initialization-mode: always
     hikari:

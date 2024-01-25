@@ -2,9 +2,22 @@ services:
   mysql:
     image: 'mysql:latest'
     environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
-      - 'MYSQL_USER=myuser'
+      - 'MYSQL_DATABASE=samples_dev_db'
+      - 'MYSQL_PASSWORD=Dev123#@!'
+      - 'MYSQL_USER=dev'
+      - 'MYSQL_ROOT_PASSWORD=Root123#@!'
+      
     ports:
-      - '3306'
+      - '3307:3307'
+  app:
+    build: .
+    ports:
+      - "9099:9099"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3307/samples_dev_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: dev
+      SPRING_DATASOURCE_PASSWORD: Dev123#@!
+volumes:
+  mysql-data:
